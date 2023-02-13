@@ -1,0 +1,32 @@
+{
+  "name": "@zqhy/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "lint": "tslint -p tsconfig.json",
+    "build": "rm -fr ./dist ./types && tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zqhy/ts.git"
+  },
+  "keywords": [],
+  "author": "innwin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zqhy/ts/issues?q=is%3Aissue+is%3Aopen+label%3A%22p%3A+core%22"
+  },
+  "homepage": "https://github.com/zqhy/ts/tree/main/packages/core#readme",
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^29.4.2",
+    "ts-jest": "^29.0.5",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.9.5"
+  }
+}
