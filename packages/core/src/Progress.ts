@@ -1,18 +1,18 @@
 import {Result} from "./Result";
 
-export const ProgressInProgress: string = "progress-in-progress";
-export const ProgressComplete: string = "progress-complete";
+export const progressInProgress: string = "progress-in-progress";
+export const progressComplete: string = "progress-complete";
 
 abstract class IProgress<T> {
 
   abstract kind: string;
 
   isInProgress(): this is InProgress<T> {
-    return this.kind === ProgressInProgress;
+    return this.kind === progressInProgress;
   }
 
   isComplete(): this is Complete<T> {
-    return this.kind === ProgressComplete;
+    return this.kind === progressComplete;
   }
 
   resultOrNull(): T | null {
@@ -26,7 +26,7 @@ export function progressContentOrNull<T>(progress: Progress<Result<T>>): T | nul
 }
 
 export class InProgress<T> extends IProgress<T> {
-  kind = ProgressInProgress;
+  kind = progressInProgress;
 
   static create<T>() {
     return new InProgress<T>();
@@ -35,7 +35,7 @@ export class InProgress<T> extends IProgress<T> {
 
 export class Complete<T> extends IProgress<T> {
 
-  kind = ProgressComplete;
+  kind = progressComplete;
   result?: T;
 
   constructor(result?: T) {

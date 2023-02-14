@@ -1,9 +1,7 @@
 import {ResultNullError} from './Errors';
 
-// tslint:disable-next-line:variable-name
-export const ResultSuccess: string = 'result-success';
-// tslint:disable-next-line:variable-name
-export const ResultFailure: string = 'result-failure';
+export const resultSuccess: string = 'result-success';
+export const resultFailure: string = 'result-failure';
 
 abstract class IResult<T = any | undefined> {
 
@@ -15,11 +13,11 @@ abstract class IResult<T = any | undefined> {
   }
 
   isSuccess(): this is Success<T> {
-    return this.kind === ResultSuccess;
+    return this.kind === resultSuccess;
   }
 
   isFailure(): this is Failure<T> {
-    return this.kind === ResultFailure;
+    return this.kind === resultFailure;
   }
 
   dataOrNull(): T | null {
@@ -41,7 +39,7 @@ export async function resultFrom<T>(runner: () => Promise<T>): Promise<Result<T>
 }
 
 export class Success<T> extends IResult<T> {
-  kind = ResultSuccess;
+  kind = resultSuccess;
 
   data: T;
 
@@ -60,7 +58,7 @@ export class Success<T> extends IResult<T> {
 }
 
 export class Failure<T> extends IResult<T> {
-  kind = ResultFailure;
+  kind = resultFailure;
 
   error?: any;
 

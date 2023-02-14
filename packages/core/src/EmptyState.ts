@@ -1,7 +1,7 @@
-export const EmptyStateEmptyLoading: string = "empty-state-EmptyLoading";
-export const EmptyStateEmpty: string = "empty-state-Empty";
-export const EmptyStateEmptyFailure: string = "empty-state-empty-failure";
-export const EmptyStateHasContent: string = "empty-state-has-content";
+export const emptyStateEmptyLoading: string = "empty-state-EmptyLoading";
+export const emptyStateEmpty: string = "empty-state-Empty";
+export const emptyStateEmptyFailure: string = "empty-state-empty-failure";
+export const emptyStateHasContent: string = "empty-state-has-content";
 
 abstract class IEmptyState {
 
@@ -13,24 +13,24 @@ abstract class IEmptyState {
   }
 
   isEmptyLoading(): this is EmptyLoading {
-    return this.kind === EmptyStateEmptyLoading;
+    return this.kind === emptyStateEmptyLoading;
   }
 
   isEmpty(): this is Empty {
-    return this.kind === EmptyStateEmpty;
+    return this.kind === emptyStateEmpty;
   }
 
   isEmptyFailure(): this is EmptyFailure {
-    return this.kind === EmptyStateEmptyFailure;
+    return this.kind === emptyStateEmptyFailure;
   }
 
   isHasContent(): this is HasContent {
-    return this.kind === EmptyStateHasContent;
+    return this.kind === emptyStateHasContent;
   }
 }
 
 export class EmptyLoading extends IEmptyState {
-  kind = EmptyStateEmptyLoading;
+  kind = emptyStateEmptyLoading;
 
   static create(message?: string | null) {
     return new EmptyLoading(message);
@@ -38,7 +38,7 @@ export class EmptyLoading extends IEmptyState {
 }
 
 export class Empty extends IEmptyState {
-  kind = EmptyStateEmpty;
+  kind = emptyStateEmpty;
 
   static create(message?: string | null) {
     return new Empty(message);
@@ -46,7 +46,7 @@ export class Empty extends IEmptyState {
 }
 
 export class EmptyFailure extends IEmptyState {
-  kind = EmptyStateEmptyFailure;
+  kind = emptyStateEmptyFailure;
 
   static create(message?: string | null) {
     return new EmptyFailure(message);
@@ -54,7 +54,7 @@ export class EmptyFailure extends IEmptyState {
 }
 
 export class HasContent extends IEmptyState {
-  kind = EmptyStateHasContent;
+  kind = emptyStateHasContent;
 
   static create(message?: string | null) {
     return new HasContent(message);
