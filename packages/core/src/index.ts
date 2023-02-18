@@ -1,9 +1,9 @@
+export { Environment } from "./common/Environment";
+export { ILocalLogger, localLogger } from "./common/LocalLogger";
+export { LocalStorage } from "./common/LocalStorage";
 export { QueryParameter } from "./common/QueryParameter";
 
 export * from "./extensions/StandardExtensions";
-
-export { ILocalLogger, localLogger } from "./services/LocalLogger";
-export { ILocalStorage, getLocalStorage } from "./services/LocalStorage";
 
 export { EmptyState, EmptyLoading, Empty, EmptyFailure, HasContent, emptyStateEmptyLoading, emptyStateEmpty, emptyStateEmptyFailure, emptyStateHasContent } from "./EmptyState";
 export { ResultNullError } from "./Errors";
