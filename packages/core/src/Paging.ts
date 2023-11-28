@@ -15,7 +15,12 @@ export class Paging<ITEM> {
   items: ITEM[];
   // nextPage?: any;
 
-  constructor(page: number, pageSize: number, totalCount: number, items: ITEM[]) {
+  constructor(
+    page: number,
+    pageSize: number,
+    totalCount: number,
+    items: ITEM[]
+  ) {
     this.page = page;
     this.pageSize = pageSize;
     this.totalCount = totalCount;
@@ -23,11 +28,9 @@ export class Paging<ITEM> {
   }
 
   get totalPages(): number {
-    if (this.pageSize > 0)
-    {
+    if (this.pageSize > 0) {
       let totalPages = this.totalCount / this.pageSize;
-      if (this.totalCount % this.pageSize > 0)
-      {
+      if (this.totalCount % this.pageSize > 0) {
         totalPages += 1;
       }
       return totalPages;

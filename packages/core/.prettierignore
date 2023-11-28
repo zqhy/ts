@@ -1,0 +1,9 @@
+# General
+.DS_Store
+
+# IntelliJ project files
+.idea
+gen
+
+**/.git
+**/node_modules

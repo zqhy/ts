@@ -1,3 +1,3 @@
 export class Environment {
-    public static readonly isServerSide = typeof window === 'undefined';
+  public static readonly isServerSide = typeof window === 'undefined';
 }

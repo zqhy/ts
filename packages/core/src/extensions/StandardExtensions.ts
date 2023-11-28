@@ -33,13 +33,19 @@ declare global {
      * @param predicate - The function to be executed with `this` as argument and returns a truthy or falsy value
      * @returns `this` or `undefined`
      */
-    takeIf(this: Number, predicate: (it: number) => boolean): number | undefined;
+    takeIf(
+      this: Number,
+      predicate: (it: number) => boolean
+    ): number | undefined;
     /**
      * Returns `this` value if it does not satisfy the given predicate or `undefined` if it does
      * @param predicate - The function to be executed with `this` as argument and returns a truthy or falsy value
      * @returns `this` or `undefined`
      */
-    takeUnless(this: Number, predicate: (it: number) => boolean): number | undefined;
+    takeUnless(
+      this: Number,
+      predicate: (it: number) => boolean
+    ): number | undefined;
   }
   interface String {
     /**
@@ -71,13 +77,19 @@ declare global {
      * @param predicate - The function to be executed with `this` as argument and returns a truthy or falsy value
      * @returns `this` or `undefined`
      */
-    takeIf(this: String, predicate: (it: string) => boolean): string | undefined;
+    takeIf(
+      this: String,
+      predicate: (it: string) => boolean
+    ): string | undefined;
     /**
      * Returns `this` value if it does not satisfy the given predicate or `undefined` if it does
      * @param predicate - The function to be executed with `this` as argument and returns a truthy or falsy value
      * @returns `this` or `undefined`
      */
-    takeUnless(this: String, predicate: (it: string) => boolean): string | undefined;
+    takeUnless(
+      this: String,
+      predicate: (it: string) => boolean
+    ): string | undefined;
   }
   interface Boolean {
     /**
@@ -109,90 +121,100 @@ declare global {
      * @param predicate - The function to be executed with `this` as argument and returns a truthy or falsy value
      * @returns `this` or `undefined`
      */
-    takeIf(this: Boolean, predicate?: (it: boolean) => boolean): boolean | undefined;
+    takeIf(
+      this: Boolean,
+      predicate?: (it: boolean) => boolean
+    ): boolean | undefined;
     /**
      * Returns `this` value if it does not satisfy the given predicate or `undefined` if it does
      * @param predicate - The function to be executed with `this` as argument and returns a truthy or falsy value
      * @returns `this` or `undefined`
      */
-    takeUnless(this: Boolean, predicate?: (it: boolean) => boolean): boolean | undefined;
+    takeUnless(
+      this: Boolean,
+      predicate?: (it: boolean) => boolean
+    ): boolean | undefined;
   }
 }
 
-Number.prototype.let = function(this, block) {
+Number.prototype.let = function (this, block) {
   return block(this.valueOf());
-}
+};
 
-Number.prototype.also = function(this, block) {
+Number.prototype.also = function (this, block) {
   block(this.valueOf());
   return this.valueOf();
-}
+};
 
-Number.prototype.run = function(this, block) {
+Number.prototype.run = function (this, block) {
   return block.call(this.valueOf());
-}
+};
 
-Number.prototype.apply = function(this, block) {
+Number.prototype.apply = function (this, block) {
   block.call(this.valueOf());
   return this.valueOf();
-}
+};
 
-Number.prototype.takeIf = function(this, predicate) {
+Number.prototype.takeIf = function (this, predicate) {
   return predicate(this.valueOf()) ? this.valueOf() : undefined;
-}
+};
 
-Number.prototype.takeUnless = function(this, predicate) {
+Number.prototype.takeUnless = function (this, predicate) {
   return predicate(this.valueOf()) ? undefined : this.valueOf();
-}
+};
 
-String.prototype.let = function(this, block) {
+String.prototype.let = function (this, block) {
   return block(this.valueOf());
-}
+};
 
-String.prototype.also = function(this, block) {
+String.prototype.also = function (this, block) {
   block(this.valueOf());
   return this.valueOf();
-}
+};
 
-String.prototype.run = function(this, block) {
+String.prototype.run = function (this, block) {
   return block.call(this.valueOf());
-}
+};
 
-String.prototype.apply = function(this, block) {
+String.prototype.apply = function (this, block) {
   block.call(this.valueOf());
   return this.valueOf();
-}
+};
 
-String.prototype.takeIf = function(this, predicate) {
+String.prototype.takeIf = function (this, predicate) {
   return predicate(this.valueOf()) ? this.valueOf() : undefined;
-}
+};
 
-String.prototype.takeUnless = function(this, predicate) {
+String.prototype.takeUnless = function (this, predicate) {
   return predicate(this.valueOf()) ? undefined : this.valueOf();
-}
+};
 
-Boolean.prototype.let = function(this, block) {
+Boolean.prototype.let = function (this, block) {
   return block(this.valueOf());
-}
+};
 
-Boolean.prototype.also = function(this, block) {
+Boolean.prototype.also = function (this, block) {
   block(this.valueOf());
   return this.valueOf();
-}
+};
 
-Boolean.prototype.run = function(this, block) {
+Boolean.prototype.run = function (this, block) {
   return block.call(this.valueOf());
-}
+};
 
-Boolean.prototype.apply = function(this, block) {
+Boolean.prototype.apply = function (this, block) {
   block.call(this.valueOf());
   return this.valueOf();
-}
+};
 
-Boolean.prototype.takeIf = function(this, predicate) {
-  return predicate && predicate(this.valueOf()) || this.valueOf() ? this.valueOf() : undefined;
-}
+Boolean.prototype.takeIf = function (this, predicate) {
+  return (predicate && predicate(this.valueOf())) || this.valueOf()
+    ? this.valueOf()
+    : undefined;
+};
 
-Boolean.prototype.takeUnless = function(this, predicate) {
-  return predicate && predicate(this.valueOf()) || this.valueOf() ? undefined : this.valueOf();
-}
+Boolean.prototype.takeUnless = function (this, predicate) {
+  return (predicate && predicate(this.valueOf())) || this.valueOf()
+    ? undefined
+    : this.valueOf();
+};

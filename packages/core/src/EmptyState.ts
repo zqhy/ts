@@ -1,10 +1,9 @@
-export const emptyStateEmptyLoading: string = "empty-state-EmptyLoading";
-export const emptyStateEmpty: string = "empty-state-Empty";
-export const emptyStateEmptyFailure: string = "empty-state-empty-failure";
-export const emptyStateHasContent: string = "empty-state-has-content";
+export const emptyStateEmptyLoading: string = 'empty-state-EmptyLoading';
+export const emptyStateEmpty: string = 'empty-state-Empty';
+export const emptyStateEmptyFailure: string = 'empty-state-empty-failure';
+export const emptyStateHasContent: string = 'empty-state-has-content';
 
 abstract class IEmptyState {
-
   abstract kind: string;
   message?: string | null;
 

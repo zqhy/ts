@@ -1,5 +1,5 @@
-import {DateHelper} from "../../src/helper/DateHelper";
+import { DateHelper } from '../../src';
 
 test('My Greeter', () => {
-    console.log(DateHelper.UtcNow());
+  console.log(DateHelper.UtcNow());
 });

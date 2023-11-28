@@ -1,10 +1,9 @@
-import {ResultNullError} from './Errors';
+import { ResultNullError } from './Errors';
 
 export const resultSuccess: string = 'result-success';
 export const resultFailure: string = 'result-failure';
 
 abstract class IResult<T = any | undefined> {
-
   abstract kind: string;
   message?: string | null;
 
@@ -25,7 +24,9 @@ abstract class IResult<T = any | undefined> {
   }
 }
 
-export async function resultFrom<T>(runner: () => Promise<T>): Promise<Result<T>> {
+export async function resultFrom<T>(
+  runner: () => Promise<T>
+): Promise<Result<T>> {
   try {
     const data = await runner();
     if (!data) {
