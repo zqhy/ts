@@ -7,6 +7,8 @@ export * from './extensions/StandardExtensions';
 
 export { DateHelper } from './helper/DateHelper';
 
+export { IJsonSerializer } from './service/IJsonSerializer';
+
 export {
   EmptyState,
   EmptyLoading,

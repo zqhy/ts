@@ -1,17 +1,32 @@
 import { Environment } from './Environment';
 
+export interface LocalStorageGetProps {
+  jsonDeserialize?: <T>(json: string) => T | null;
+  reviver?: (this: any, key: string, value: any) => any;
+}
+
 export class LocalStorage {
   public static getItem(key: string): string | null {
     return Environment.isServerSide ? null : localStorage.getItem(key);
   }
 
-  public static get<T>(key: string, defaultValue: T | null = null): T | null {
+  public static get<T>(
+    key: string,
+    defaultValue: T | null = null,
+    props?: LocalStorageGetProps
+  ): T | null {
     if (Environment.isServerSide) {
       return defaultValue;
     }
 
     const data = localStorage.getItem(key);
-    return data ? JSON.parse(data).value : defaultValue;
+    if (!data) {
+      return defaultValue;
+    }
+    if (props?.jsonDeserialize) {
+      return props.jsonDeserialize<T>(data);
+    }
+    return JSON.parse(data, props?.reviver);
   }
   // https://www.qupaya.com/blog/type-safe-local-storage
   public static set<T>(key: string, value: T): void {
