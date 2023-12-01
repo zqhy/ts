@@ -5,7 +5,7 @@ export { QueryParameter } from './common/QueryParameter';
 
 export * from './extensions/StandardExtensions';
 
-export { DateHelper } from './helper/DateHelper';
+export { DateHelper, TimeSpan } from './helper/DateHelper';
 
 export { IJsonSerializer } from './service/IJsonSerializer';
 
