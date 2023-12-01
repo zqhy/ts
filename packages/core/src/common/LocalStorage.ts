@@ -1,7 +1,7 @@
 import { Environment } from './Environment';
 
 export interface LocalStorageGetProps {
-  jsonDeserialize?: <T>(json: string) => T | null;
+  jsonDeserialize?: (json: string) => any;
   reviver?: (this: any, key: string, value: any) => any;
 }
 
@@ -24,9 +24,9 @@ export class LocalStorage {
       return defaultValue;
     }
     if (props?.jsonDeserialize) {
-      return props.jsonDeserialize<T>(data);
+      return props.jsonDeserialize(data)?.value;
     }
-    return JSON.parse(data, props?.reviver);
+    return JSON.parse(data, props?.reviver).value;
   }
   // https://www.qupaya.com/blog/type-safe-local-storage
   public static set<T>(key: string, value: T): void {
