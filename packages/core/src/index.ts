@@ -1,3 +1,4 @@
+export { Enum } from './common/Enum';
 export { Environment } from './common/Environment';
 export { ILocalLogger, localLogger } from './common/LocalLogger';
 export { LocalStorage } from './common/LocalStorage';
